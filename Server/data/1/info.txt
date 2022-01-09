@@ -1,0 +1,9 @@
+{
+        "path": "data/1/image.png",
+        "lat": 45.76,
+        "lon": 4.82,
+        "timestamp": 1641750640,
+        "type": "paper",
+        "status": "active",
+        "id_user": 1
+}

@@ -1,0 +1,9 @@
+{
+        "path": "data/0/image.png",
+        "lat": 45.76,
+        "lon": 4.83,
+        "timestamp": 1641750645,
+        "type": "glass",
+        "status": "found",
+        "id_user": 1
+}
