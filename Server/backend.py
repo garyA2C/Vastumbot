@@ -47,6 +47,21 @@ class Server(BaseHTTPRequestHandler):
 
     # GET sends back a Hello world message
     def do_GET(self):
+        # Automatically populate data.json if new subdirectories appear
+        path_dir = pathlib.Path(__file__).parent.resolve()
+        lenImages = len(next(os.walk(str(path_dir)+'/data'))[1])
+        with open('data.json', 'r+') as jsonFile:
+            data = json.loads(jsonFile.read())
+            lenJson = len(data)
+            if lenImages > lenJson:
+                for i in range(lenImages-lenJson):
+                    with open('data/'+str(lenJson+i)+'/info.txt', 'r') as jsonPlus:
+                        dataPlus = {str(lenJson+i): json.loads(jsonPlus.read())}
+                        data.update(dataPlus)
+            jsonFile.seek(0)
+            json.dump(data, jsonFile)
+            jsonFile.truncate()
+
         myPath = self.path[1:]
         if myPath == '':
             self.do_GET_global()
