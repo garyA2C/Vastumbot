@@ -1,5 +1,13 @@
 [
     {
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_iconnonrecyclable.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\iconnonrecyclable.png"
+    },
+    {
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_iconbulky.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\iconbulky.png"
+    },
+    {
         "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\menu_main.xml.flat",
         "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\menu\\main.xml"
     },
@@ -26,6 +34,10 @@
     {
         "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_glass.png.flat",
         "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\glass.png"
+    },
+    {
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_blackdot.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\blackdot.png"
     },
     {
         "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_rotadroite.png.flat",
@@ -76,6 +88,10 @@
         "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\logoremovebg.png"
     },
     {
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\xml_network_security_config.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\xml\\network_security_config.xml"
+    },
+    {
         "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\layout_nav_header_main.xml.flat",
         "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\layout\\nav_header_main.xml"
     },
@@ -100,6 +116,10 @@
         "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_iconbanana.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\iconbanana.png"
+    },
+    {
         "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_banana.png.flat",
         "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\banana.png"
     },
@@ -110,6 +130,10 @@
     {
         "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_bulky.png.flat",
         "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\bulky.png"
+    },
+    {
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_miniblackdot.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\miniblackdot.png"
     },
     {
         "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.webp.flat",
@@ -136,6 +160,10 @@
         "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
     },
     {
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_iconglass.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\iconglass.png"
+    },
+    {
         "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\raw_style_json.json.flat",
         "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\raw\\style_json.json"
     },
@@ -146,5 +174,9 @@
     {
         "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\layout_app_bar_main.xml.flat",
         "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_iconplastic.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\iconplastic.png"
     }
 ]

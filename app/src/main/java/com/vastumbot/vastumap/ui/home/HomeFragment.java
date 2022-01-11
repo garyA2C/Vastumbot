@@ -1,8 +1,13 @@
 package com.vastumbot.vastumap.ui.home;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +22,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -25,9 +37,15 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.GroundOverlay;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,9 +53,17 @@ import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.vastumbot.vastumap.BuildConfig;
 import com.vastumbot.vastumap.MainActivity;
+import com.vastumbot.vastumap.MySingleton;
 import com.vastumbot.vastumap.R;
 import com.vastumbot.vastumap.databinding.FragmentHomeBinding;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.sql.Array;
+import java.text.BreakIterator;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class HomeFragment extends Fragment implements OnMapReadyCallback {
@@ -58,7 +84,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     // A default location (Sydney, Australia) and default zoom to use when location permission is
     // not granted.
     private final LatLng defaultLocation = new LatLng(-33.8523341, 151.2106085);
-    private static final int DEFAULT_ZOOM = 15;
+    private static final int DEFAULT_ZOOM = 18;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean locationPermissionGranted;
 
@@ -79,8 +105,10 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     private List[] likelyPlaceAttributions;
     private LatLng[] likelyPlaceLatLngs;
 
+    private View view;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
             homeViewModel =
                     new ViewModelProvider(this).get(HomeViewModel.class);
@@ -110,11 +138,11 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
             // [START_EXCLUDE silent]
             // Construct a PlacesClient
-            Places.initialize(getActivity().getApplicationContext(), BuildConfig.MAPS_API_KEY);
-            placesClient = Places.createClient(getActivity());
+            Places.initialize(root.getContext().getApplicationContext(), BuildConfig.MAPS_API_KEY);
+            placesClient = Places.createClient(root.getContext().getApplicationContext());
 
             // Construct a FusedLocationProviderClient.
-            fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
+            fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(root.getContext().getApplicationContext());
 
             // Build the map.
             // [START maps_current_place_map_fragment]
@@ -122,6 +150,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             mapFragment.getMapAsync(this);
             // [END maps_current_place_map_fragment]
             // [END_EXCLUDE]
+            view=root;
             return root;
     }
 
@@ -151,7 +180,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             // in a raw resource file.
             boolean success = map.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
-                            getActivity(), R.raw.style_json));
+                            view.getContext(), R.raw.style_json));
 
             if (!success) {
                 Log.e(TAG, "Style parsing failed.");
@@ -164,7 +193,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             // in a raw resource file.
             boolean success = map.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
-                            getActivity(), R.raw.style_json));
+                            view.getContext(), R.raw.style_json));
 
             if (!success) {
                 Log.e(TAG, "Style parsing failed.");
@@ -184,6 +213,105 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
+
+        String url = "http://192.168.137.1:8008";
+
+
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            Iterator<String> temp = response.keys();
+                            while (temp.hasNext()) {
+                                String key = temp.next();
+                                System.out.println(key);
+                                JSONObject value = (JSONObject) response.get(key);
+                                System.out.println(value.get("lat"));
+                                System.out.println(value.get("lon"));
+                                System.out.println(value.get("timestamp"));
+                                System.out.println(value.get("type"));
+                                System.out.println(value.get("status"));
+                                System.out.println(value.get("id_user"));
+                                System.out.println(value);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("Erroooooor" + error.toString());
+                    }
+                });
+
+        // Access the RequestQueue through your singleton class.
+        MySingleton.getInstance(view.getContext()).addToRequestQueue(jsonObjectRequest);
+
+
+        map.setMinZoomPreference(15);
+
+        BitmapDescriptor image = BitmapDescriptorFactory.fromBitmap(resizeBitmap("plastic",72,64)); // get an image.
+        final LatLng locaplastic = new LatLng(45.784453, 4.872162);
+
+        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                .image(BitmapDescriptorFactory.fromResource(R.drawable.plastic))
+                .position(locaplastic, 40f, 30f)
+                .clickable(true);
+        map.addGroundOverlay(newarkMap);
+
+        int height = 200;
+        int width = 200;
+        BitmapDrawable bitmapdraw = (BitmapDrawable)getResources().getDrawable(R.drawable.miniblackdot);
+        Bitmap b = bitmapdraw.getBitmap();
+        Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+
+        Marker marker=map.addMarker(new MarkerOptions()
+                .position(new LatLng(0, 0))
+                .title("Default title")
+                .snippet("Default timestamp")
+                .visible(false)
+                .anchor(0.5f,0.5f)
+                .icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
+                .alpha(0f));
+
+        map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(@NonNull Marker marker) {
+                /*String latitude=Double.toString(marker.getPosition().latitude);
+                String longitude=Double.toString(marker.getPosition().longitude);
+                Uri gmmIntentUri = Uri.parse("google.navigation:q="+latitude+"+"+longitude+"&mode=w");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);*/
+                MySingleton.getInstance(view.getContext()).addToRequestQueue(jsonObjectRequest);
+                return false;
+            }
+        });
+
+        map.setOnGroundOverlayClickListener(new GoogleMap.OnGroundOverlayClickListener() {
+            @Override
+            public void onGroundOverlayClick(@NonNull GroundOverlay groundOverlay) {
+                System.out.println(groundOverlay.getPosition());
+                marker.setPosition(groundOverlay.getPosition());
+                marker.setTitle("Type");
+                marker.setSnippet("Timestamp");
+                marker.setVisible(true);
+                marker.setInfoWindowAnchor(0.5f,0.5f);
+                marker.showInfoWindow();
+                map.moveCamera(CameraUpdateFactory.newLatLng(groundOverlay.getPosition()));
+            }
+        });
+
+        map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(@NonNull LatLng latLng) {
+                marker.setVisible(false);
+            }
+        });
     }
     // [END maps_current_place_on_map_ready]
 
@@ -300,4 +428,9 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             super.onDestroyView();
             binding = null;
         }
-    }
+
+        public Bitmap resizeBitmap(String drawableName, int width, int height){
+            Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(),getResources().getIdentifier(drawableName, "drawable", getActivity().getPackageName()));
+            return Bitmap.createScaledBitmap(imageBitmap, width, height, false);
+        }
+}
