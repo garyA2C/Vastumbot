@@ -1,0 +1,9 @@
+{
+        "path": "data/5/image.png",
+        "lat": 45.784303,
+        "lon": 4.874226,
+        "timestamp": 1641750231,
+        "type": "organic",
+        "status": "disappeared",
+        "id_user": 1
+}

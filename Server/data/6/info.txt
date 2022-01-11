@@ -1,0 +1,9 @@
+{
+        "path": "data/6/image.png",
+        "lat": 45.784203,
+        "lon": 4.874426,
+        "timestamp": 1641750231,
+        "type": "nonrecyclable",
+        "status": "disappeared",
+        "id_user": 1
+}
