@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ta\\values-ta.xml",
+            "outputFile": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ta\\values-ta.xml",
             "map": [
                 {
                     "source": "C:\\Users\\garyA\\.gradle\\caches\\transforms-3\\8f6b3b7f854bd33cd48c2b364ccd5b0d\\transformed\\appcompat-1.4.0\\res\\values-ta\\values-ta.xml",

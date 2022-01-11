@@ -6,16 +6,16 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml
+8-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="31" />
-9-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml
+9-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-11-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:4:5-79
-11-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:4:22-76
+11-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:4:5-79
+11-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:4:22-76
 12    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-12-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:5:5-81
-12-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:5:22-78
+12-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:5:5-81
+12-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:5:22-78
 13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 13-->[com.google.android.libraries.places:places:2.5.0] C:\Users\garyA\.gradle\caches\transforms-3\d097e211ed05a554052035ace3f592db\transformed\jetified-places-2.5.0\AndroidManifest.xml:10:5-76
 13-->[com.google.android.libraries.places:places:2.5.0] C:\Users\garyA\.gradle\caches\transforms-3\d097e211ed05a554052035ace3f592db\transformed\jetified-places-2.5.0\AndroidManifest.xml:10:22-73
@@ -43,48 +43,48 @@
 25    </queries>
 26
 27    <application
-27-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:7:5-29:19
+27-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:7:5-29:19
 28        android:allowBackup="true"
-28-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:8:9-35
+28-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:8:9-35
 29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 29-->[androidx.core:core:1.7.0] C:\Users\garyA\.gradle\caches\transforms-3\14f1708710bcea5944668c6750090ced\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 30        android:debuggable="true"
 31        android:icon="@drawable/logoremovebg"
-31-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:9:9-46
+31-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:9:9-46
 32        android:label="@string/app_name"
-32-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:10:9-41
+32-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:10:9-41
 33        android:roundIcon="@drawable/logoremovebg"
-33-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:11:9-51
+33-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:11:9-51
 34        android:supportsRtl="true"
-34-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:12:9-35
+34-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:12:9-35
 35        android:testOnly="true"
 36        android:theme="@style/Theme.Vastumbot" >
-36-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:13:9-47
+36-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:13:9-47
 37        <meta-data
 38            android:name="com.google.android.geo.API_KEY"
-38-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:15:13-58
+38-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:15:13-58
 39            android:value="AIzaSyAN9mz1gV28aLX0hIX9gHT7bAwhPpiqZC4" />
-39-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:16:13-44
+39-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:16:13-44
 40
 41        <activity
-41-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:18:9-28:20
+41-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:18:9-28:20
 42            android:name="com.vastumbot.vastumap.MainActivity"
-42-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:19:13-41
+42-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:19:13-41
 43            android:exported="true"
-43-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:20:13-36
+43-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:20:13-36
 44            android:label="@string/app_name"
-44-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:21:13-45
+44-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:21:13-45
 45            android:theme="@style/Theme.Vastumbot.NoActionBar" >
-45-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:22:13-63
+45-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:22:13-63
 46            <intent-filter>
-46-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:23:13-27:29
+46-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:23:13-27:29
 47                <action android:name="android.intent.action.MAIN" />
-47-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:24:17-69
-47-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:24:25-66
+47-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:24:17-69
+47-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:24:25-66
 48
 49                <category android:name="android.intent.category.LAUNCHER" />
-49-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:26:17-77
-49-->C:\Users\garyA\AndroidStudioProjects\app\src\main\AndroidManifest.xml:26:27-74
+49-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:26:17-77
+49-->C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:26:27-74
 50            </intent-filter>
 51        </activity>
 52        <activity

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sl\\values-sl.xml",
+            "outputFile": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sl\\values-sl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\garyA\\.gradle\\caches\\transforms-3\\dbcfa790db80810da0713f04cec0894d\\transformed\\jetified-play-services-base-18.0.1\\res\\values-sl\\values.xml",

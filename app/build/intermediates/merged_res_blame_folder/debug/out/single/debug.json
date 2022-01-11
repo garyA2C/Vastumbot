@@ -1,150 +1,150 @@
 [
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_banana.png.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\banana.png"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\menu_main.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\menu\\main.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_side_nav_bar.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\side_nav_bar.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_logonobg.png.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\logonobg.png"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_rotadroite.png.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\rotadroite.png"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_plastic.png.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\plastic.png"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_gallery.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\layout\\fragment_gallery.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\layout_nav_header_main.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\layout\\nav_header_main.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_nonrecyclable.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\nonrecyclable.png"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\layout_content_main.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\layout\\content_main.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_glass.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\glass.png"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_glass.png.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\glass.png"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_rotadroite.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\rotadroite.png"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\raw_style_json.json.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\raw\\style_json.json"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_logonobg.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\logonobg.png"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_bulky.png.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\bulky.png"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_side_nav_bar.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\side_nav_bar.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_menu_gallery.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\ic_menu_gallery.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\layout_app_bar_main.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\layout\\app_bar_main.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_logoremovebg.png.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\logoremovebg.png"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_menu_gallery.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\ic_menu_gallery.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\menu_activity_main_drawer.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\layout_content_main.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\layout\\content_main.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\navigation_mobile_navigation.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_menu_camera.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\ic_menu_camera.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_logoremovebg.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\logoremovebg.png"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_menu_camera.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\ic_menu_camera.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\layout_nav_header_main.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\layout\\nav_header_main.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_home.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\layout\\fragment_home.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_plastic.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\plastic.png"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\menu_activity_main_drawer.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_banana.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\banana.png"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_slideshow.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\layout\\fragment_slideshow.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_nonrecyclable.png.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\nonrecyclable.png"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_bulky.png.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\bulky.png"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\menu_main.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\menu\\main.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_gallery.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\layout\\fragment_gallery.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\layout\\fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_slideshow.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\layout\\fragment_slideshow.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\raw_style_json.json.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\raw\\style_json.json"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_menu_slideshow.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\drawable\\ic_menu_slideshow.xml"
     },
     {
-        "merged": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_menu_slideshow.xml.flat",
-        "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\drawable\\ic_menu_slideshow.xml"
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\merged_res\\debug\\layout_app_bar_main.xml.flat",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\layout\\app_bar_main.xml"
     }
 ]

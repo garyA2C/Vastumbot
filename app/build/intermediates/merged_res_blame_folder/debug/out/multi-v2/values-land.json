@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
-                {
-                    "source": "C:\\Users\\garyA\\AndroidStudioProjects\\app\\src\\main\\res\\values-land\\dimens.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "8",
-                        "startOffsets": "20",
-                        "endColumns": "45",
-                        "endOffsets": "57"
-                    },
-                    "to": {
-                        "startLines": "5",
-                        "startColumns": "4",
-                        "startOffsets": "264",
-                        "endColumns": "41",
-                        "endOffsets": "301"
-                    }
-                },
                 {
                     "source": "C:\\Users\\garyA\\.gradle\\caches\\transforms-3\\4485ed4e8d898810b5d71181ebc756d7\\transformed\\material-1.4.0\\res\\values-land\\values-land.xml",
                     "from": {
@@ -47,6 +30,23 @@
                         "startOffsets": "55,125,196",
                         "endColumns": "69,70,67",
                         "endOffsets": "120,191,259"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\values-land\\dimens.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "8",
+                        "startOffsets": "21",
+                        "endColumns": "45",
+                        "endOffsets": "58"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "264",
+                        "endColumns": "41",
+                        "endOffsets": "301"
                     }
                 }
             ]
