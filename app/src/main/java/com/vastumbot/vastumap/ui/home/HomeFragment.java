@@ -56,6 +56,7 @@ import com.vastumbot.vastumap.MainActivity;
 import com.vastumbot.vastumap.MySingleton;
 import com.vastumbot.vastumap.R;
 import com.vastumbot.vastumap.databinding.FragmentHomeBinding;
+import com.vastumbot.vastumap.ui.Waste;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -63,6 +64,7 @@ import org.json.JSONObject;
 import java.sql.Array;
 import java.text.BreakIterator;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -77,6 +79,8 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
     // The entry point to the Places API.
     private PlacesClient placesClient;
+
+    private Marker marker;
 
     // The entry point to the Fused Location Provider.
     private FusedLocationProviderClient fusedLocationProviderClient;
@@ -107,51 +111,56 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
     private View view;
 
+    private ArrayList<Waste> allWaste;
+
+    private BitmapDescriptor bitPlastic, bitGlass, bitOrganic, bitBulky, bitNonRecyclable, bitPaper, bitCardboard;
+    private Bitmap bitSmallMarker;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-            homeViewModel =
-                    new ViewModelProvider(this).get(HomeViewModel.class);
+        homeViewModel =
+                new ViewModelProvider(this).get(HomeViewModel.class);
 
-            binding = FragmentHomeBinding.inflate(inflater, container, false);
-            View root = binding.getRoot();
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
 
-            final TextView textView = binding.textHome;
-            homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-                    @Override
-                    public void onChanged(@Nullable String s) {
-                            textView.setText(s);
-                    }
-            });
-            // [START_EXCLUDE silent]
-            // [START maps_current_place_on_create_save_instance_state]
-            // Retrieve location and camera position from saved instance state.
-            if (savedInstanceState != null) {
-                lastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
-                cameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
+        final TextView textView = binding.textHome;
+        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                textView.setText(s);
             }
-            // [END maps_current_place_on_create_save_instance_state]
-            // [END_EXCLUDE]
+        });
+        // [START_EXCLUDE silent]
+        // [START maps_current_place_on_create_save_instance_state]
+        // Retrieve location and camera position from saved instance state.
+        if (savedInstanceState != null) {
+            lastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
+            cameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
+        }
+        // [END maps_current_place_on_create_save_instance_state]
+        // [END_EXCLUDE]
 
-            // Retrieve the content view that renders the map.
-            //setContentView(R.layout.activity_main);
+        // Retrieve the content view that renders the map.
+        //setContentView(R.layout.activity_main);
 
-            // [START_EXCLUDE silent]
-            // Construct a PlacesClient
-            Places.initialize(root.getContext().getApplicationContext(), BuildConfig.MAPS_API_KEY);
-            placesClient = Places.createClient(root.getContext().getApplicationContext());
+        // [START_EXCLUDE silent]
+        // Construct a PlacesClient
+        Places.initialize(root.getContext().getApplicationContext(), BuildConfig.MAPS_API_KEY);
+        placesClient = Places.createClient(root.getContext().getApplicationContext());
 
-            // Construct a FusedLocationProviderClient.
-            fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(root.getContext().getApplicationContext());
+        // Construct a FusedLocationProviderClient.
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(root.getContext().getApplicationContext());
 
-            // Build the map.
-            // [START maps_current_place_map_fragment]
-            SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager().findFragmentById(R.id.map);
-            mapFragment.getMapAsync(this);
-            // [END maps_current_place_map_fragment]
-            // [END_EXCLUDE]
-            view=root;
-            return root;
+        // Build the map.
+        // [START maps_current_place_map_fragment]
+        SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+        // [END maps_current_place_map_fragment]
+        // [END_EXCLUDE]
+        view = root;
+        return root;
     }
 
     /**
@@ -216,7 +225,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
         String url = "http://192.168.137.1:8008";
 
-
+        allWaste = new ArrayList<Waste>();
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -227,15 +236,21 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                             Iterator<String> temp = response.keys();
                             while (temp.hasNext()) {
                                 String key = temp.next();
-                                System.out.println(key);
                                 JSONObject value = (JSONObject) response.get(key);
-                                System.out.println(value.get("lat"));
-                                System.out.println(value.get("lon"));
-                                System.out.println(value.get("timestamp"));
-                                System.out.println(value.get("type"));
-                                System.out.println(value.get("status"));
-                                System.out.println(value.get("id_user"));
-                                System.out.println(value);
+                                int id = Integer.parseInt(key);
+                                double lat = (Double) value.get("lat");
+                                double lon = (Double) value.get("lon");
+                                LatLng coord = new LatLng(lat, lon);
+                                long timeStamp = Long.valueOf((Integer) value.get("timestamp"));
+                                Date date = new Date(timeStamp * 1000);
+                                String type = (String) value.get("type");
+                                String status = (String) value.get("status");
+                                int id_user = (Integer) (value.get("id_user"));
+                                Waste newWaste = new Waste(id, coord, date, type, status, id_user);
+                                if (!allWaste.contains(newWaste)) {
+                                    allWaste.add(newWaste);
+                                    System.out.println("\n \n \n pouet \n \n \n");
+                                }
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -251,32 +266,21 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         // Access the RequestQueue through your singleton class.
         MySingleton.getInstance(view.getContext()).addToRequestQueue(jsonObjectRequest);
 
-
         map.setMinZoomPreference(15);
 
-        BitmapDescriptor image = BitmapDescriptorFactory.fromBitmap(resizeBitmap("plastic",72,64)); // get an image.
-        final LatLng locaplastic = new LatLng(45.784453, 4.872162);
+        bitPlastic = BitmapDescriptorFactory.fromBitmap(resizeBitmap("plastic", 75, 75));
+        bitPaper = BitmapDescriptorFactory.fromBitmap(resizeBitmap("paper", 75, 75));
+        bitCardboard = BitmapDescriptorFactory.fromBitmap(resizeBitmap("cardboard", 75, 75));
+        bitNonRecyclable = BitmapDescriptorFactory.fromBitmap(resizeBitmap("nonrecyclable", 75, 75));
+        bitBulky = BitmapDescriptorFactory.fromBitmap(resizeBitmap("bulky", 75, 75));
+        bitOrganic = BitmapDescriptorFactory.fromBitmap(resizeBitmap("organic", 75, 75));
+        bitGlass = BitmapDescriptorFactory.fromBitmap(resizeBitmap("glass", 75, 75));
 
-        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                .image(BitmapDescriptorFactory.fromResource(R.drawable.plastic))
-                .position(locaplastic, 40f, 30f)
-                .clickable(true);
-        map.addGroundOverlay(newarkMap);
-
-        int height = 200;
-        int width = 200;
-        BitmapDrawable bitmapdraw = (BitmapDrawable)getResources().getDrawable(R.drawable.miniblackdot);
+        BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.miniblackdot);
         Bitmap b = bitmapdraw.getBitmap();
-        Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+        bitSmallMarker = Bitmap.createScaledBitmap(b, 200, 200, false);
 
-        Marker marker=map.addMarker(new MarkerOptions()
-                .position(new LatLng(0, 0))
-                .title("Default title")
-                .snippet("Default timestamp")
-                .visible(false)
-                .anchor(0.5f,0.5f)
-                .icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
-                .alpha(0f));
+        drawOnMap();
 
         map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
@@ -288,6 +292,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);*/
                 MySingleton.getInstance(view.getContext()).addToRequestQueue(jsonObjectRequest);
+                drawOnMap();
                 return false;
             }
         });
@@ -300,7 +305,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 marker.setTitle("Type");
                 marker.setSnippet("Timestamp");
                 marker.setVisible(true);
-                marker.setInfoWindowAnchor(0.5f,0.5f);
+                marker.setInfoWindowAnchor(0.5f, 0.5f);
                 marker.showInfoWindow();
                 map.moveCamera(CameraUpdateFactory.newLatLng(groundOverlay.getPosition()));
             }
@@ -312,6 +317,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 marker.setVisible(false);
             }
         });
+
     }
     // [END maps_current_place_on_map_ready]
 
@@ -424,13 +430,33 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     // [END maps_current_place_update_location_ui]
 
     @Override
-        public void onDestroyView() {
-            super.onDestroyView();
-            binding = null;
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
+    public Bitmap resizeBitmap(String drawableName, int width, int height) {
+        Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(), getResources().getIdentifier(drawableName, "drawable", getActivity().getPackageName()));
+        return Bitmap.createScaledBitmap(imageBitmap, width, height, false);
+    }
+    public void drawOnMap(){
+        map.clear();
+        marker = map.addMarker(new MarkerOptions()
+                .position(new LatLng(0, 0))
+                .title("Default title")
+                .snippet("Default timestamp")
+                .visible(false)
+                .anchor(0.5f, 0.5f)
+                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                .alpha(0f));
+        for (Waste w : allWaste){
         }
 
-        public Bitmap resizeBitmap(String drawableName, int width, int height){
-            Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(),getResources().getIdentifier(drawableName, "drawable", getActivity().getPackageName()));
-            return Bitmap.createScaledBitmap(imageBitmap, width, height, false);
-        }
+        final LatLng locaplastic = new LatLng(45.784453, 4.872162);
+        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                .image(BitmapDescriptorFactory.fromResource(R.drawable.plastic))
+                .position(locaplastic, 30f, 30f)
+                .clickable(true);
+        map.addGroundOverlay(newarkMap);
+    }
 }

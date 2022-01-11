@@ -2225,8 +2225,6 @@ int drawable abc_textfield_search_material 0x7f070054
 int drawable abc_vector_test 0x7f070055
 int drawable avd_hide_password 0x7f070056
 int drawable avd_show_password 0x7f070057
-int drawable banana 0x7f070058
-int drawable blackdot 0x7f0700bf
 int drawable btn_checkbox_checked_mtrl 0x7f070059
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f07005a
 int drawable btn_checkbox_unchecked_mtrl 0x7f07005b
@@ -2236,6 +2234,7 @@ int drawable btn_radio_off_to_on_mtrl_animation 0x7f07005e
 int drawable btn_radio_on_mtrl 0x7f07005f
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f070060
 int drawable bulky 0x7f070061
+int drawable cardboard 0x7f0700c1
 int drawable common_full_open_on_phone 0x7f070062
 int drawable common_google_signin_btn_icon_dark 0x7f070063
 int drawable common_google_signin_btn_icon_dark_focused 0x7f070064
@@ -2274,11 +2273,6 @@ int drawable ic_mtrl_checked_circle 0x7f070084
 int drawable ic_mtrl_chip_checked_black 0x7f070085
 int drawable ic_mtrl_chip_checked_circle 0x7f070086
 int drawable ic_mtrl_chip_close_circle 0x7f070087
-int drawable iconbanana 0x7f0700ba
-int drawable iconbulky 0x7f0700bb
-int drawable iconglass 0x7f0700bc
-int drawable iconnonrecyclable 0x7f0700bd
-int drawable iconplastic 0x7f0700be
 int drawable logonobg 0x7f070088
 int drawable logoremovebg 0x7f070089
 int drawable material_cursor_drawable 0x7f07008a
@@ -2316,6 +2310,8 @@ int drawable notification_template_icon_bg 0x7f0700a8
 int drawable notification_template_icon_low_bg 0x7f0700a9
 int drawable notification_tile_bg 0x7f0700aa
 int drawable notify_panel_notification_icon_bg 0x7f0700ab
+int drawable organic 0x7f0700c2
+int drawable paper 0x7f0700c3
 int drawable places_autocomplete_toolbar_shadow 0x7f0700ac
 int drawable places_powered_by_google_dark 0x7f0700ad
 int drawable places_powered_by_google_light 0x7f0700ae
