@@ -1,6 +1,7 @@
 import cv2
 import time
 import json 
+import math 
 
 def blur_person(image, factor=3.0):
     (h, w) = image.shape[:2]
@@ -18,7 +19,7 @@ def blur_person(image, factor=3.0):
 
 
 thres = 0.35  # Threshold to detect object
-video_path = r"C:/Users/Dell/Downloads/test_velo.MP4"
+video_path = r"D:\Applications\pils\Vastumbot\Backend\test.mp4"
 cap = cv2.VideoCapture(video_path)
 #cap = cv2.VideoCapture(0)
 
@@ -52,6 +53,9 @@ output = []
 while True:
     try:
         success, img = cap.read()
+        # print(success)
+        if not success:
+            break
         # frame+=1
         classIds, confs, bbox = net.detect(img, confThreshold=thres)
     # print(classIds, bbox)
@@ -92,8 +96,9 @@ while True:
                     else:
                         continue
                 except:
-                    print("error")
-            print(output)
+                    # print("error")
+                    pass
+            # print(output)
     
         cv2.imshow('Output', img)
         result.write(img)
@@ -103,3 +108,37 @@ while True:
         # print("error2")
 cap.release()
 result.release()
+# print(output)
+index = 0
+img = [ [] for i in range(37)]
+change = True
+while output:
+    print("Processing",output[0])
+    img[index].append(output[0])
+    del output[0]
+    if not output:
+        break
+    # print(output[0])
+  
+    print(math.dist([output[0][1], output[0][2]], [img[index][-1][1], img[index][-1][2]]) )
+
+    if  math.dist([output[0][1], output[0][2]], [img[index][-1][1], img[index][-1][2]]) < 25:
+        # print(output[0])
+        # print(output[0][1], output[0][2])
+        # print(img[index][-1][1], img[index][-1][1])
+        print("Linking ", str(output[0][0]), str(img[index][-1]))
+        print("----")
+        img[index].append(output[0])
+        del output[0]
+        if not output:
+            break
+    else :
+        index += 1
+        if not output:
+            break
+
+
+# print(img)
+for i in range(10):
+    print(img[i])
+    
