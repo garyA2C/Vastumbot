@@ -19,13 +19,13 @@
         android:layout_width="0dp"
         app:layout_constraintWidth_percent="0.3"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintHeight_percent="0.7"
         android:layout_weight="0.7"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logonobg" />
+        app:srcCompat="@drawable/ic_logonobgsvg" />
 
     <TextView
         android:id="@+id/textViewMenu"

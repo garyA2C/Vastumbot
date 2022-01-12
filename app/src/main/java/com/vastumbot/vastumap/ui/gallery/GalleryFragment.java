@@ -4,13 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import com.vastumbot.vastumap.R;
+
 import com.vastumbot.vastumap.databinding.FragmentGalleryBinding;
 import com.vastumbot.vastumap.ui.Waste;
 import com.vastumbot.vastumap.ui.home.HomeFragment;
@@ -22,6 +20,7 @@ public class GalleryFragment extends Fragment {
 
     private GalleryViewModel galleryViewModel;
     private FragmentGalleryBinding binding;
+    private View aboutUsView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
@@ -33,6 +32,7 @@ public class GalleryFragment extends Fragment {
         allWaste=HomeFragment.allWaste;
         
         return root;
+
     }
 
 @Override

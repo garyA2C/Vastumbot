@@ -12,6 +12,7 @@ INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidM
 INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-39:12
 INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-39:12
 MERGED from [androidx.databinding:viewbinding:7.0.4] C:\Users\garyA\.gradle\caches\transforms-3\459c8e17d20167b341256f72459d024b\transformed\jetified-viewbinding-7.0.4\AndroidManifest.xml:17:1-22:12
+MERGED from [io.github.medyo:android-about-page:2.0.0] C:\Users\garyA\.gradle\caches\transforms-3\19b9a07a31a63c73d26307eae2bc3a51\transformed\jetified-android-about-page-2.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\garyA\.gradle\caches\transforms-3\947c7049b242dd6a566f0831804f028d\transformed\navigation-ui-2.3.5\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\garyA\.gradle\caches\transforms-3\4485ed4e8d898810b5d71181ebc756d7\transformed\material-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\garyA\.gradle\caches\transforms-3\89b5e90ba0f162058e91c97886b152d6\transformed\constraintlayout-2.1.2\AndroidManifest.xml:2:1-11:12
@@ -199,6 +200,8 @@ INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidM
 INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml
 MERGED from [androidx.databinding:viewbinding:7.0.4] C:\Users\garyA\.gradle\caches\transforms-3\459c8e17d20167b341256f72459d024b\transformed\jetified-viewbinding-7.0.4\AndroidManifest.xml:20:5-44
 MERGED from [androidx.databinding:viewbinding:7.0.4] C:\Users\garyA\.gradle\caches\transforms-3\459c8e17d20167b341256f72459d024b\transformed\jetified-viewbinding-7.0.4\AndroidManifest.xml:20:5-44
+MERGED from [io.github.medyo:android-about-page:2.0.0] C:\Users\garyA\.gradle\caches\transforms-3\19b9a07a31a63c73d26307eae2bc3a51\transformed\jetified-android-about-page-2.0.0\AndroidManifest.xml:7:5-9:41
+MERGED from [io.github.medyo:android-about-page:2.0.0] C:\Users\garyA\.gradle\caches\transforms-3\19b9a07a31a63c73d26307eae2bc3a51\transformed\jetified-android-about-page-2.0.0\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\garyA\.gradle\caches\transforms-3\947c7049b242dd6a566f0831804f028d\transformed\navigation-ui-2.3.5\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\garyA\.gradle\caches\transforms-3\947c7049b242dd6a566f0831804f028d\transformed\navigation-ui-2.3.5\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\garyA\.gradle\caches\transforms-3\4485ed4e8d898810b5d71181ebc756d7\transformed\material-1.4.0\AndroidManifest.xml:20:5-44
