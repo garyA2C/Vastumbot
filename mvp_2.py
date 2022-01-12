@@ -15,9 +15,8 @@ def blur_person(image, factor=3.0):
     return cv2.GaussianBlur(image, (kW, kH), 0)
 
 
-thres = 0.60  # Threshold to detect object
-
-video_path = "/Users/quentinvittoz/Downloads/GH010012_1641911297876.MP4"
+thres = 0.30  # Threshold to detect object
+video_path = "/Users/quentinvittoz/Downloads/test_velo.MP4"
 cap = cv2.VideoCapture(video_path)
 #cap = cv2.VideoCapture(0)
 
@@ -56,7 +55,7 @@ while True:
                 try:
 
 
-                    if classId not in [3,67,63,62]:
+                    if classId in [28,29,44,46,72,80,78]:
                         x, y, w, h = box
                         cv2.rectangle(img, box, color=(0, 255, 0), thickness=2)
                         cv2.putText(img, classNames[classId - 1].upper(), (box[0], box[1]),
