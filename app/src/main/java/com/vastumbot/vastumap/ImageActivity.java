@@ -1,5 +1,6 @@
 package com.vastumbot.vastumap;
 
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -9,16 +10,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.vastumbot.vastumap.ui.Waste;
 import com.vastumbot.vastumap.ui.home.HomeFragment;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -55,17 +60,59 @@ public class ImageActivity extends AppCompatActivity {
         butCleared.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*try {
-                    statusUpdate("found");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                builder.setCancelable(true);
+                builder.setTitle("Confirmer le ramassage ? ");
+                builder.setMessage("Nous marquerons sur nos serveurs le déchet comme ramassé");
+                builder.setPositiveButton("Oui",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                statusUpdate("found");
+                                HomeFragment.initAllWaste();
+                                HomeFragment.actualiseAllWaste();
+                                HomeFragment.drawOnMap();
+                                waste.status="found";
+                                textStatus.setText("Status : "+waste.status);
+                            }
+                        });
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
         butUntraceable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                statusUpdate("disappeared");
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                builder.setCancelable(true);
+                builder.setTitle("Confirmer que le déchet est manquant ? ");
+                builder.setMessage("Nous marquerons sur nos serveurs le déchet comme introuvable");
+                builder.setPositiveButton("Oui",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                statusUpdate("disappeared");
+                                HomeFragment.initAllWaste();
+                                HomeFragment.actualiseAllWaste();
+                                HomeFragment.drawOnMap();
+                                waste.status="disappeared";
+                                textStatus.setText("Status : "+waste.status);
+                            }
+                        });
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
         waste= HomeFragment.getWaste();
@@ -94,33 +141,45 @@ public class ImageActivity extends AppCompatActivity {
 
     public void statusUpdate(String status) {
         String url = "http://192.168.137.1:8008/"+waste.id;
-        StringRequest putRequest = new StringRequest(Request.Method.PUT, url,
-                new Response.Listener<String>()
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        final JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("status", status);
+        } catch (JSONException e) {
+            // handle exception
+        }
+
+        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.PUT, url, jsonObject,
+                new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(String response) {
-                        System.out.println(response);
+                    public void onResponse(JSONObject response) {
+                        // response
+                        System.out.println("Response" + response.toString());
                     }
                 },
                 new Response.ErrorListener()
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        System.out.println(error);
+                        // error
+                        System.out.println("Error.Response" + error.toString());
                     }
                 }
         ) {
-
-            @Override
-            protected Map<String, String> getParams()
-            {
-                Map<String, String>  params = new HashMap<String, String>();
-                params.put("status", status);
-                return params;
+            public Map<String, String> getHeaders() {
+                Map<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json");
+                return headers;
             }
 
+            @Override
+            public String getBodyContentType() {
+                return "application/json";
+            }
         };
-
-        MySingleton.getInstance(this).addToRequestQueue(putRequest);
+        queue.add(putRequest);
     }
 }

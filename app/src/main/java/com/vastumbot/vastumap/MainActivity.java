@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Chargement des données serveur", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Actualisation de la carte", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 HomeFragment.actualiseAllWaste();
                 HomeFragment.drawOnMap();
