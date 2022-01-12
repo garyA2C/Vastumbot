@@ -36,10 +36,10 @@
                     "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\values-land\\dimens.xml",
                     "from": {
                         "startLines": "1",
-                        "startColumns": "8",
-                        "startOffsets": "21",
-                        "endColumns": "45",
-                        "endOffsets": "58"
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "41",
+                        "endOffsets": "53"
                     },
                     "to": {
                         "startLines": "5",

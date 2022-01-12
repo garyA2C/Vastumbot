@@ -1,27 +1,30 @@
 package com.vastumbot.vastumap;
 
+import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Menu;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
+import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import com.vastumbot.vastumap.databinding.ActivityMainBinding;
 
-import java.util.Arrays;
-import java.util.List;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.vastumbot.vastumap.databinding.ActivityMainBinding;
+import com.vastumbot.vastumap.ui.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private HomeFragment homeFragment;
+    private ClipData.Item item;
 
-    // [START maps_current_place_on_create]
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Chargement des données serveur", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                HomeFragment.actualiseAllWaste();
+                HomeFragment.drawOnMap();
+                //Pour test l'ImageActivity
+                // switchActivities();
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -63,5 +70,10 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    private void switchActivities() {
+        Intent switchActivityIntent = new Intent(this, ImageActivity.class);
+        startActivity(switchActivityIntent);
     }
 }

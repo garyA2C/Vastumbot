@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 meta-data#com.google.android.geo.API_KEY
-INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:17:9-19:47
+INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:22:9-24:47
 	android:value
 		INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:19:13-44
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:24:13-44
 	android:name
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:18:13-58
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:23:13-58
 manifest
-ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-34:12
+ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-39:12
 MERGED from [androidx.databinding:viewbinding:7.0.4] C:\Users\garyA\.gradle\caches\transforms-3\459c8e17d20167b341256f72459d024b\transformed\jetified-viewbinding-7.0.4\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\garyA\.gradle\caches\transforms-3\947c7049b242dd6a566f0831804f028d\transformed\navigation-ui-2.3.5\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\garyA\.gradle\caches\transforms-3\4485ed4e8d898810b5d71181ebc756d7\transformed\material-1.4.0\AndroidManifest.xml:17:1-24:12
@@ -70,35 +70,35 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.print:print:1.0.0] C:\Users\garyA\.gradle\caches\transforms-3\051cdd2ca7be794d00f78f74f5d701e6\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\garyA\.gradle\caches\transforms-3\1833920cdaa064e7c8b090171f785612\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.datatransport:transport-api:2.2.0] C:\Users\garyA\.gradle\caches\transforms-3\05d2b454f7f66102a19abb05b04ea9c4\transformed\jetified-transport-api-2.2.0\AndroidManifest.xml:15:1-22:12
-INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-39:12
 	package
 		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-34:12
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-39:12
 		INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-34:12
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:1-39:12
 		INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:4:5-79
+ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:5:5-79
 MERGED from [com.google.android.libraries.places:places:2.5.0] C:\Users\garyA\.gradle\caches\transforms-3\d097e211ed05a554052035ace3f592db\transformed\jetified-places-2.5.0\AndroidManifest.xml:9:5-79
 MERGED from [com.google.android.libraries.places:places:2.5.0] C:\Users\garyA\.gradle\caches\transforms-3\d097e211ed05a554052035ace3f592db\transformed\jetified-places-2.5.0\AndroidManifest.xml:9:5-79
 	android:name
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:4:22-76
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:5:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:5:5-81
+ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:6:5-81
 	android:name
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:5:22-78
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:6:22-78
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:6:5-67
+ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:7:5-67
 MERGED from [com.google.android.libraries.places:places:2.5.0] C:\Users\garyA\.gradle\caches\transforms-3\d097e211ed05a554052035ace3f592db\transformed\jetified-places-2.5.0\AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.libraries.places:places:2.5.0] C:\Users\garyA\.gradle\caches\transforms-3\d097e211ed05a554052035ace3f592db\transformed\jetified-places-2.5.0\AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\garyA\.gradle\caches\transforms-3\1431b0ec2c1061914891f6af57242992\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:24:5-67
@@ -106,9 +106,9 @@ MERGED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\garyA\.g
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\garyA\.gradle\caches\transforms-3\cc3636fe1043fb8c37325c226a255f81\transformed\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:26:5-67
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\garyA\.gradle\caches\transforms-3\cc3636fe1043fb8c37325c226a255f81\transformed\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:26:5-67
 	android:name
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:6:22-64
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:7:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:7:5-79
+ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:8:5-79
 MERGED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\garyA\.gradle\caches\transforms-3\1431b0ec2c1061914891f6af57242992\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\garyA\.gradle\caches\transforms-3\1431b0ec2c1061914891f6af57242992\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\garyA\.gradle\caches\transforms-3\cc3636fe1043fb8c37325c226a255f81\transformed\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:25:5-79
@@ -116,9 +116,9 @@ MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Us
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\garyA\.gradle\caches\transforms-3\e3aa601c2a1c4f6246a0a12db06d806f\transformed\jetified-transport-runtime-2.2.3\AndroidManifest.xml:22:5-79
 MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\garyA\.gradle\caches\transforms-3\e3aa601c2a1c4f6246a0a12db06d806f\transformed\jetified-transport-runtime-2.2.3\AndroidManifest.xml:22:5-79
 	android:name
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:7:22-76
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:8:22-76
 application
-ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:9:5-32:19
+ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:10:5-37:19
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\garyA\.gradle\caches\transforms-3\4485ed4e8d898810b5d71181ebc756d7\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\garyA\.gradle\caches\transforms-3\4485ed4e8d898810b5d71181ebc756d7\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\garyA\.gradle\caches\transforms-3\89b5e90ba0f162058e91c97886b152d6\transformed\constraintlayout-2.1.2\AndroidManifest.xml:9:5-20
@@ -154,39 +154,45 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\garyA\.gradle\cach
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] C:\Users\garyA\.gradle\caches\transforms-3\14f1708710bcea5944668c6750090ced\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:16:9-35
 	android:label
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:12:9-41
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:13:9-41
 	android:roundIcon
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:13:9-51
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:15:9-51
 	android:icon
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:11:9-46
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:12:9-46
 	android:allowBackup
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:15:9-47
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:17:9-47
 	android:networkSecurityConfig
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:16:9-69
-activity#com.vastumbot.vastumap.MainActivity
-ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:21:9-31:20
-	android:label
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:24:13-45
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:14:9-69
+activity#com.vastumbot.vastumap.ImageActivity
+ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:18:9-20:40
 	android:exported
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:23:13-36
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:20:13-37
+	android:name
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:19:13-42
+activity#com.vastumbot.vastumap.MainActivity
+ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:26:9-36:20
+	android:label
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:29:13-45
+	android:exported
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:28:13-36
 	android:theme
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:25:13-63
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:30:13-63
 	android:name
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:22:13-41
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:27:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:26:13-30:29
+ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:31:13-35:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:27:17-69
+ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:32:17-69
 	android:name
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:27:25-66
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:32:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:29:17-77
+ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:34:17-77
 	android:name
-		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:29:27-74
+		ADDED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml:34:27-74
 uses-sdk
 INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\garyA\Documents\PILS\test\Vastumbot\app\src\main\AndroidManifest.xml

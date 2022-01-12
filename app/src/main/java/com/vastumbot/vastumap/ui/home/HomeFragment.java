@@ -31,6 +31,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -62,11 +63,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.sql.Array;
+import java.sql.Time;
 import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
@@ -74,13 +77,13 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     private FragmentHomeBinding binding;
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private GoogleMap map;
+    public static GoogleMap map;
     private CameraPosition cameraPosition;
 
     // The entry point to the Places API.
     private PlacesClient placesClient;
 
-    private Marker marker;
+    //private Marker marker;
 
     // The entry point to the Fused Location Provider.
     private FusedLocationProviderClient fusedLocationProviderClient;
@@ -109,12 +112,14 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     private List[] likelyPlaceAttributions;
     private LatLng[] likelyPlaceLatLngs;
 
-    private View view;
+    private static View view;
 
-    private ArrayList<Waste> allWaste;
+    public static ArrayList<Waste> allWaste;
+
+    private boolean FirstDraw;
 
     private BitmapDescriptor bitPlastic, bitGlass, bitOrganic, bitBulky, bitNonRecyclable, bitPaper, bitCardboard;
-    private Bitmap bitSmallMarker;
+    private static Bitmap bitSmallMarker;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -159,7 +164,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
         // [END maps_current_place_map_fragment]
         // [END_EXCLUDE]
-        view = root;
+        HomeFragment.view = root;
         return root;
     }
 
@@ -223,50 +228,14 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
 
-        String url = "http://192.168.137.1:8008";
+        initAllWaste();
+        actualiseAllWaste();
 
-        allWaste = new ArrayList<Waste>();
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            Iterator<String> temp = response.keys();
-                            while (temp.hasNext()) {
-                                String key = temp.next();
-                                JSONObject value = (JSONObject) response.get(key);
-                                int id = Integer.parseInt(key);
-                                double lat = (Double) value.get("lat");
-                                double lon = (Double) value.get("lon");
-                                LatLng coord = new LatLng(lat, lon);
-                                long timeStamp = Long.valueOf((Integer) value.get("timestamp"));
-                                Date date = new Date(timeStamp * 1000);
-                                String type = (String) value.get("type");
-                                String status = (String) value.get("status");
-                                int id_user = (Integer) (value.get("id_user"));
-                                Waste newWaste = new Waste(id, coord, date, type, status, id_user);
-                                if (!allWaste.contains(newWaste)) {
-                                    allWaste.add(newWaste);
-                                    System.out.println("\n \n \n pouet \n \n \n");
-                                }
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        System.out.println("Erroooooor" + error.toString());
-                    }
-                });
-
-        // Access the RequestQueue through your singleton class.
-        MySingleton.getInstance(view.getContext()).addToRequestQueue(jsonObjectRequest);
-
-        map.setMinZoomPreference(15);
+        map.setMinZoomPreference(16);
+        map.setMaxZoomPreference(18);
+        map.getUiSettings().setRotateGesturesEnabled(false);
+        map.getUiSettings().setZoomControlsEnabled(true);
+        map.getUiSettings().setTiltGesturesEnabled(false);
 
         bitPlastic = BitmapDescriptorFactory.fromBitmap(resizeBitmap("plastic", 75, 75));
         bitPaper = BitmapDescriptorFactory.fromBitmap(resizeBitmap("paper", 75, 75));
@@ -280,7 +249,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         Bitmap b = bitmapdraw.getBitmap();
         bitSmallMarker = Bitmap.createScaledBitmap(b, 200, 200, false);
 
-        drawOnMap();
+        FirstDraw=true;
 
         map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
@@ -291,33 +260,53 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);*/
-                MySingleton.getInstance(view.getContext()).addToRequestQueue(jsonObjectRequest);
-                drawOnMap();
+                //MySingleton.getInstance(view.getContext()).addToRequestQueue(jsonObjectRequest);
                 return false;
+            }
+        });
+
+        map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(@NonNull Marker marker) {
+
             }
         });
 
         map.setOnGroundOverlayClickListener(new GoogleMap.OnGroundOverlayClickListener() {
             @Override
             public void onGroundOverlayClick(@NonNull GroundOverlay groundOverlay) {
-                System.out.println(groundOverlay.getPosition());
-                marker.setPosition(groundOverlay.getPosition());
-                marker.setTitle("Type");
-                marker.setSnippet("Timestamp");
-                marker.setVisible(true);
-                marker.setInfoWindowAnchor(0.5f, 0.5f);
-                marker.showInfoWindow();
-                map.moveCamera(CameraUpdateFactory.newLatLng(groundOverlay.getPosition()));
+                CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(groundOverlay.getPosition())
+                        .zoom(map.getCameraPosition().zoom)
+                        .build();
+                CameraUpdate cu = CameraUpdateFactory.newCameraPosition(cameraPosition);
+                map.animateCamera(cu);
+                for (Waste w : allWaste){
+                    if (groundOverlay.equals(w.groundOverlay)){
+                        System.out.println(groundOverlay.getPosition());
+                        w.marker.setVisible(true);
+                        w.marker.setInfoWindowAnchor(0.5f, 0.3f);
+                        w.marker.showInfoWindow();
+                    }else{
+                        w.marker.setVisible(false);
+                    }
+                }
             }
         });
 
         map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(@NonNull LatLng latLng) {
-                marker.setVisible(false);
+                if (FirstDraw){
+                    drawOnMap();
+                    FirstDraw=false;
+                }
+
+                for (Waste w : allWaste) {
+                    w.marker.setVisible(false);
+                }
             }
         });
-
     }
     // [END maps_current_place_on_map_ready]
 
@@ -439,24 +428,179 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(), getResources().getIdentifier(drawableName, "drawable", getActivity().getPackageName()));
         return Bitmap.createScaledBitmap(imageBitmap, width, height, false);
     }
-    public void drawOnMap(){
+    public static void drawOnMap(){
         map.clear();
-        marker = map.addMarker(new MarkerOptions()
-                .position(new LatLng(0, 0))
-                .title("Default title")
-                .snippet("Default timestamp")
-                .visible(false)
-                .anchor(0.5f, 0.5f)
-                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                .alpha(0f));
+        System.out.println("\n \n\nyooooo\n\n\n");
         for (Waste w : allWaste){
+            System.out.println(w.type);
+            if (w.isSameType("plastic")){
+                GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                        .image(BitmapDescriptorFactory.fromResource(R.drawable.plastic))
+                        .position(w.coord, 30f, 30f)
+                        .clickable(true);
+                w.groundOverlay=map.addGroundOverlay(newarkMap);
+                w.marker = map.addMarker(new MarkerOptions()
+                        .position(w.coord)
+                        .title("Plastic")
+                        .snippet(w.date.toString())
+                        .visible(false)
+                        .anchor(0.5f, 0.5f)
+                        .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                        .alpha(0f));
+            }
+            else if (w.isSameType("glass")){
+                GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                        .image(BitmapDescriptorFactory.fromResource(R.drawable.glass))
+                        .position(w.coord, 30f, 30f)
+                        .clickable(true);
+                w.groundOverlay=map.addGroundOverlay(newarkMap);
+                w.marker = map.addMarker(new MarkerOptions()
+                        .position(w.coord)
+                        .title("Glass")
+                        .snippet(w.date.toString())
+                        .visible(false)
+                        .anchor(0.5f, 0.5f)
+                        .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                        .alpha(0f));
+            }
+            else if (w.isSameType("paper")){
+                GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                        .image(BitmapDescriptorFactory.fromResource(R.drawable.paper))
+                        .position(w.coord, 30f, 30f)
+                        .clickable(true);
+                w.groundOverlay=map.addGroundOverlay(newarkMap);
+                w.marker = map.addMarker(new MarkerOptions()
+                        .position(w.coord)
+                        .title("Paper")
+                        .snippet(w.date.toString())
+                        .visible(false)
+                        .anchor(0.5f, 0.5f)
+                        .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                        .alpha(0f));
+            }
+            else if (w.isSameType("cardboard")){
+                GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                        .image(BitmapDescriptorFactory.fromResource(R.drawable.cardboard))
+                        .position(w.coord, 30f, 30f)
+                        .clickable(true);
+                w.groundOverlay=map.addGroundOverlay(newarkMap);
+                w.marker = map.addMarker(new MarkerOptions()
+                        .position(w.coord)
+                        .title("Cardboard")
+                        .snippet(w.date.toString())
+                        .visible(false)
+                        .anchor(0.5f, 0.5f)
+                        .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                        .alpha(0f));
+            }
+            else if (w.isSameType("nonrecyclable")){
+                GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                        .image(BitmapDescriptorFactory.fromResource(R.drawable.nonrecyclable))
+                        .position(w.coord, 30f, 30f)
+                        .clickable(true);
+                w.groundOverlay=map.addGroundOverlay(newarkMap);
+                w.marker = map.addMarker(new MarkerOptions()
+                        .position(w.coord)
+                        .title("Non recyclable")
+                        .snippet(w.date.toString())
+                        .visible(false)
+                        .anchor(0.5f, 0.5f)
+                        .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                        .alpha(0f));
+            }
+            else if (w.isSameType("organic")){
+                GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                        .image(BitmapDescriptorFactory.fromResource(R.drawable.organic))
+                        .position(w.coord, 30f, 30f)
+                        .clickable(true);
+                w.groundOverlay=map.addGroundOverlay(newarkMap);
+                w.marker = map.addMarker(new MarkerOptions()
+                        .position(w.coord)
+                        .title("Organic")
+                        .snippet(w.date.toString())
+                        .visible(false)
+                        .anchor(0.5f, 0.5f)
+                        .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                        .alpha(0f));
+            }
+            else if (w.isSameType("bulky")){
+                GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                        .image(BitmapDescriptorFactory.fromResource(R.drawable.bulky))
+                        .position(w.coord, 30f, 30f)
+                        .clickable(true);
+                w.groundOverlay=map.addGroundOverlay(newarkMap);
+                w.marker = map.addMarker(new MarkerOptions()
+                        .position(w.coord)
+                        .title("Bulky")
+                        .snippet(w.date.toString())
+                        .visible(false)
+                        .anchor(0.5f, 0.5f)
+                        .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                        .alpha(0f));
+            }else{
+                LatLng c=new LatLng(45.783884, 4.872454);
+                GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                        .image(BitmapDescriptorFactory.fromResource(R.drawable.logonobg))
+                        .position(c, 30f, 30f)
+                        .clickable(true);
+                w.groundOverlay=map.addGroundOverlay(newarkMap);
+                w.marker = map.addMarker(new MarkerOptions()
+                        .position(w.coord)
+                        .title("Error")
+                        .snippet(w.date.toString())
+                        .visible(false)
+                        .anchor(0.5f, 0.5f)
+                        .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                        .alpha(0f));
+            }
         }
+    }
+    public static void initAllWaste(){
+        allWaste=new ArrayList<Waste>();
+    }
 
-        final LatLng locaplastic = new LatLng(45.784453, 4.872162);
-        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                .image(BitmapDescriptorFactory.fromResource(R.drawable.plastic))
-                .position(locaplastic, 30f, 30f)
-                .clickable(true);
-        map.addGroundOverlay(newarkMap);
+    public static void actualiseAllWaste(){
+
+        String url = "http://192.168.137.1:8008";
+
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            Iterator<String> temp = response.keys();
+                            while (temp.hasNext()) {
+                                String key = temp.next();
+                                JSONObject value = (JSONObject) response.get(key);
+                                int id = Integer.parseInt(key);
+                                double lat = (Double) value.get("lat");
+                                double lon = (Double) value.get("lon");
+                                LatLng coord = new LatLng(lat, lon);
+                                long timeStamp = Long.valueOf((Integer) value.get("timestamp"));
+                                Date date = new Date(timeStamp * 1000);
+                                String type = (String) value.get("type");
+                                String status = (String) value.get("status");
+                                int id_user = (Integer) (value.get("id_user"));
+                                Waste newWaste = new Waste(id, coord, date, type, status, id_user);
+                                if (!allWaste.contains(newWaste)) {
+                                    allWaste.add(newWaste);
+                                    System.out.println("\n \n \n pouet \n \n \n");
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("Erroooooor" + error.toString());
+                    }
+                });
+
+        // Access the RequestQueue through your singleton class.
+        MySingleton.getInstance(view.getContext()).addToRequestQueue(jsonObjectRequest);
     }
 }

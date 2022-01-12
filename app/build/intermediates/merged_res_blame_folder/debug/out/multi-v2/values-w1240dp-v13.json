@@ -7,10 +7,10 @@
                     "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
                     "from": {
                         "startLines": "1",
-                        "startColumns": "8",
-                        "startOffsets": "21",
-                        "endColumns": "46",
-                        "endOffsets": "59"
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "42",
+                        "endOffsets": "54"
                     },
                     "to": {
                         "startLines": "2",

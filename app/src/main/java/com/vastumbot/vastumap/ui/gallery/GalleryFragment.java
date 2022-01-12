@@ -12,11 +12,16 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.vastumbot.vastumap.R;
 import com.vastumbot.vastumap.databinding.FragmentGalleryBinding;
+import com.vastumbot.vastumap.ui.Waste;
+import com.vastumbot.vastumap.ui.home.HomeFragment;
+
+import java.util.ArrayList;
 
 public class GalleryFragment extends Fragment {
+    private ArrayList<Waste> allWaste;
 
     private GalleryViewModel galleryViewModel;
-private FragmentGalleryBinding binding;
+    private FragmentGalleryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
@@ -25,6 +30,8 @@ private FragmentGalleryBinding binding;
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        allWaste=HomeFragment.allWaste;
+        
         return root;
     }
 

@@ -2,17 +2,20 @@ package com.vastumbot.vastumap.ui;
 
 import com.google.android.gms.maps.model.GroundOverlay;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+
 import java.util.Date;
 import java.util.Objects;
 
 public class Waste {
-    private int id;
-    private LatLng coord;
-    private Date date;
-    private String type;
-    private String status;
-    private int id_user;
-    private GroundOverlay groundOverlay;
+    public int id;
+    public LatLng coord;
+    public Date date;
+    public String type;
+    public String status;
+    public int id_user;
+    public GroundOverlay groundOverlay;
+    public Marker marker;
 
     public Waste(int id, LatLng coord, Date date, String type, String status, int id_user) {
         this.id = id;
@@ -34,5 +37,9 @@ public class Waste {
     @Override
     public int hashCode() {
         return Objects.hash(id, coord, date, type, status, id_user);
+    }
+
+    public boolean isSameType(String otherType){
+        return this.type.equals(otherType);
     }
 }

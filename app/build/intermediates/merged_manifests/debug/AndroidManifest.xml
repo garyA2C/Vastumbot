@@ -35,6 +35,10 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Vastumbot" >
+        <activity
+            android:name="com.vastumbot.vastumap.ImageActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAN9mz1gV28aLX0hIX9gHT7bAwhPpiqZC4" />

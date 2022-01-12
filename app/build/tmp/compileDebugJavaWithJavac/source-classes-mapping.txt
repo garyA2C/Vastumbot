@@ -1,19 +1,22 @@
 com/vastumbot/vastumap/MySingleton.java
  com.vastumbot.vastumap.MySingleton
  com.vastumbot.vastumap.MySingleton$1
-com/vastumbot/vastumap/ui/Waste.java
- com.vastumbot.vastumap.ui.Waste
 com/vastumbot/vastumap/ui/gallery/GalleryFragment.java
  com.vastumbot.vastumap.ui.gallery.GalleryFragment
+com/vastumbot/vastumap/ui/Waste.java
+ com.vastumbot.vastumap.ui.Waste
+com/vastumbot/vastumap/ImageActivity.java
+ com.vastumbot.vastumap.ImageActivity
 com/vastumbot/vastumap/ui/home/HomeViewModel.java
  com.vastumbot.vastumap.ui.home.HomeViewModel
 com/vastumbot/vastumap/BuildConfig.java
  com.vastumbot.vastumap.BuildConfig
 com/vastumbot/vastumap/databinding/ActivityMainBinding.java
  com.vastumbot.vastumap.databinding.ActivityMainBinding
-com/vastumbot/vastumap/MainActivity.java
- com.vastumbot.vastumap.MainActivity
- com.vastumbot.vastumap.MainActivity$1
+com/vastumbot/vastumap/databinding/FragmentHomeBinding.java
+ com.vastumbot.vastumap.databinding.FragmentHomeBinding
+com/vastumbot/vastumap/databinding/ActivityImageBinding.java
+ com.vastumbot.vastumap.databinding.ActivityImageBinding
 com/vastumbot/vastumap/databinding/ContentMainBinding.java
  com.vastumbot.vastumap.databinding.ContentMainBinding
 com/vastumbot/vastumap/ui/slideshow/SlideshowFragment.java
@@ -31,8 +34,6 @@ com/vastumbot/vastumap/databinding/FragmentGalleryBinding.java
  com.vastumbot.vastumap.databinding.FragmentGalleryBinding
 com/vastumbot/vastumap/databinding/AppBarMainBinding.java
  com.vastumbot.vastumap.databinding.AppBarMainBinding
-com/vastumbot/vastumap/databinding/FragmentHomeBinding.java
- com.vastumbot.vastumap.databinding.FragmentHomeBinding
 com/vastumbot/vastumap/ui/home/HomeFragment.java
  com.vastumbot.vastumap.ui.home.HomeFragment
  com.vastumbot.vastumap.ui.home.HomeFragment$1
@@ -42,3 +43,7 @@ com/vastumbot/vastumap/ui/home/HomeFragment.java
  com.vastumbot.vastumap.ui.home.HomeFragment$5
  com.vastumbot.vastumap.ui.home.HomeFragment$6
  com.vastumbot.vastumap.ui.home.HomeFragment$7
+ com.vastumbot.vastumap.ui.home.HomeFragment$8
+com/vastumbot/vastumap/MainActivity.java
+ com.vastumbot.vastumap.MainActivity
+ com.vastumbot.vastumap.MainActivity$1

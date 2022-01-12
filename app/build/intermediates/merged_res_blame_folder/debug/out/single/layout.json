@@ -8,6 +8,10 @@
         "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\layout\\nav_header_main.xml"
     },
     {
+        "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_image.xml",
+        "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\layout\\activity_image.xml"
+    },
+    {
         "merged": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\app_bar_main.xml",
         "source": "C:\\Users\\garyA\\Documents\\PILS\\test\\Vastumbot\\app\\src\\main\\res\\layout\\app_bar_main.xml"
     },

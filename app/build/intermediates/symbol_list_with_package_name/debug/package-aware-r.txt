@@ -2327,6 +2327,7 @@ drawable test_custom_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+font merriweatherbold
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -2394,7 +2395,6 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_settings
 id action_text
 id actions
 id activity_chooser_view_content
@@ -2429,7 +2429,9 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id buttonCleared
 id buttonPanel
+id buttonUntraceable
 id cache_measures
 id callMeasure
 id cancel_button
@@ -2743,6 +2745,7 @@ id snackbar_text
 id snap
 id snapMargins
 id south
+id space
 id spacer
 id special_effects_controller_view_tag
 id spline
@@ -2787,11 +2790,15 @@ id test_radiobutton_android_button_tint
 id test_radiobutton_app_button_tint
 id text
 id text2
+id textButton
 id textEnd
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textStatus
+id textTime
 id textTop
+id textType
 id textView
 id textViewMenu
 id text_home
@@ -2914,6 +2921,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_image
 layout activity_main
 layout app_bar_main
 layout content_main
@@ -3085,6 +3093,9 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string first_fragment_label
+string hello_first_fragment
+string hello_second_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
@@ -3153,6 +3164,7 @@ string nav_header_subtitle
 string nav_header_title
 string navigation_drawer_close
 string navigation_drawer_open
+string next
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -3167,8 +3179,11 @@ string places_cancel
 string places_powered_by_google
 string places_search_error
 string places_try_again
+string previous
 string search_menu_title
+string second_fragment_label
 string status_bar_notification_info_overflow
+string title_activity_image
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
