@@ -98,7 +98,7 @@ detection = detection.reset_index(drop=True)
 
 detection = detection[['path', 'lat', 'lon', 'timestamp', 'type', 'status', 'id_user']]
 for i in range(len(detection)):
-    detection['path'][i] = str(detection['path'][i]) + str(i) + '/image.png'
+    detection['path'][i] = str(detection['path'][i]) + str(i) + '/image.jpg'
 
 for i in range(len(detection)):
     data = {}
