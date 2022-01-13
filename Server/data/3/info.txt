@@ -1,5 +1,5 @@
 {
-        "path": "data/3/image.png",
+        "path": "data/3/image.jpg",
         "lat": 45.75,
         "lon": 4.82,
         "timestamp": 1641750000,
