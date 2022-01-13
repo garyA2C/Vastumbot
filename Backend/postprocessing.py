@@ -117,8 +117,8 @@ big_data = {}
 for i in range(len(detection)):
     big_data[i] = {}
     big_data[i]['path'] = str(detection['path'][i])
-    big_data[i]['lon'] = float(detection['lat'][i])
-    big_data[i]['lat'] = float(detection['lon'][i])
+    big_data[i]['lat'] = float(detection['lat'][i])
+    big_data[i]['lon'] = float(detection['lon'][i])
     big_data[i]['timestamp'] = int(detection['timestamp'][i])
     big_data[i]['type'] = str(detection['type'][i])
     big_data[i]['status'] = str(detection['status'][i])
