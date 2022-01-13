@@ -39,7 +39,7 @@ class Server(BaseHTTPRequestHandler):
         statinfo = os.stat(path_to_image)
         img_size = statinfo.st_size
         self.send_response(200)
-        self.send_header("Content-type", "image/png")
+        self.send_header("Content-type", "image/jpg")
         self.send_header("Content-length", img_size)
         self.end_headers() 
         with open(path_to_image, 'rb') as image:
@@ -67,7 +67,7 @@ class Server(BaseHTTPRequestHandler):
             self.do_GET_global()
         elif myPath.isdigit():
             self.do_GET_object(myPath)
-        elif '.png' in myPath:
+        elif '.jpg' in myPath:
             self.do_GET_image(myPath)
         elif '/' in myPath:
             self.do_GET_objectinfo(myPath)
