@@ -25,7 +25,7 @@ zebra
 giraffe
 hat
 backpack
-umbrella
+non_recyclable
 shoe
 eye glasses
 handbag
@@ -44,13 +44,13 @@ tennis racket
 bottle
 plate
 wine glass
-cup
+carboard
 fork
 knife
 spoon
 bowl
 banana
-apple
+organic
 sandwich
 orange
 broccoli
@@ -69,13 +69,13 @@ window
 desk
 toilet
 door
-tv
+bulky
 laptop
 mouse
 remote
 keyboard
 cell phone
-microwave
+bulky
 oven
 toaster
 sink
