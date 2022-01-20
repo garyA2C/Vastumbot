@@ -19,4 +19,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
 
+    <Switch
+        android:id="@+id/swi"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.4"
+        android:layout_height="wrap_content"
+
+        android:text="Actifs"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/merriweatherbold"
+        android:checked="true"
+        android:background="#FF90CC00"
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

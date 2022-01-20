@@ -7,13 +7,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Switch;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -23,19 +24,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
@@ -44,7 +40,6 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.GroundOverlay;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -63,19 +58,19 @@ import com.vastumbot.vastumap.ui.Waste;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Array;
-import java.sql.Time;
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
+
 
 public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
+
+    public static boolean actif = true;
 
     private static final String TAG = MainActivity.class.getSimpleName();
     public static GoogleMap map;
@@ -113,12 +108,15 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     private List[] likelyPlaceAttributions;
     private LatLng[] likelyPlaceLatLngs;
 
+    private Switch swi;
+
     private static View view;
     private static Waste waste;
 
     public static ArrayList<Waste> allWaste;
 
     private boolean FirstDraw;
+    private static float f=20f;
 
     private BitmapDescriptor bitPlastic, bitGlass, bitOrganic, bitBulky, bitNonRecyclable, bitPaper, bitCardboard;
     private static Bitmap bitSmallMarker;
@@ -234,7 +232,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         actualiseAllWaste();
 
         map.setMinZoomPreference(16);
-        map.setMaxZoomPreference(18);
+        map.setMaxZoomPreference(20);
         map.getUiSettings().setRotateGesturesEnabled(false);
         map.getUiSettings().setZoomControlsEnabled(true);
         map.getUiSettings().setTiltGesturesEnabled(false);
@@ -249,7 +247,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
         BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.miniblackdot);
         Bitmap b = bitmapdraw.getBitmap();
-        bitSmallMarker = Bitmap.createScaledBitmap(b, 200, 200, false);
+        bitSmallMarker = Bitmap.createScaledBitmap(b, 50, 50, false);
 
         FirstDraw=true;
 
@@ -435,6 +433,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+
     }
 
     public Bitmap resizeBitmap(String drawableName, int width, int height) {
@@ -444,262 +443,372 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     public static void drawOnMap(){
         map.clear();
         System.out.println("\n \n\nyooooo\n\n\n");
-        for (Waste w : allWaste){
-            if (w.status.equals("found")){
+        if (actif){
+            for (Waste w : allWaste) {
+                if (w.status.equals("found")) {
 
-            }else if (w.status.equals("disappeared")){
-                System.out.println(w.type);
-                if (w.isSameType("plastic")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.plastic))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true)
-                            .transparency(0.7f);
+                } else if (w.status.equals("disappeared")) {
+                    System.out.println(w.type);
+                    if (w.isSameType("plastic")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.plastic))
+                                .position(w.coord, f, f)
+                                .clickable(true)
+                                .transparency(0.7f);
 
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Plastic")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }
-                else if (w.isSameType("glass")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.glass))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true)
-                            .transparency(0.7f);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Glass")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }
-                else if (w.isSameType("paper")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.paper))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true)
-                            .transparency(0.7f);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Paper")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }
-                else if (w.isSameType("cardboard")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.cardboard))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true)
-                            .transparency(0.7f);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Cardboard")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }
-                else if (w.isSameType("nonrecyclable")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.nonrecyclable))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true)
-                            .transparency(0.7f);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Non recyclable")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }
-                else if (w.isSameType("organic")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.organic))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true)
-                            .transparency(0.7f);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Organic")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }
-                else if (w.isSameType("bulky")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.bulky))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true)
-                            .transparency(0.7f);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Bulky")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }else{
-                    LatLng c=new LatLng(45.783884, 4.872454);
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.logonobg))
-                            .position(c, 30f, 30f)
-                            .clickable(true)
-                            .transparency(0.5f);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Error")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Plastic")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("glass")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.glass))
+                                .position(w.coord, f, f)
+                                .clickable(true)
+                                .transparency(0.7f);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Glass")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("paper")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.paper))
+                                .position(w.coord, f, f)
+                                .clickable(true)
+                                .transparency(0.7f);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Paper")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("cardboard")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.cardboard))
+                                .position(w.coord, f, f)
+                                .clickable(true)
+                                .transparency(0.7f);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Cardboard")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("nonrecyclable")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.nonrecyclable))
+                                .position(w.coord, f, f)
+                                .clickable(true)
+                                .transparency(0.7f);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Non recyclable")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("organic")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.organic))
+                                .position(w.coord, f, f)
+                                .clickable(true)
+                                .transparency(0.7f);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Organic")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("bulky")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.bulky))
+                                .position(w.coord, f, f)
+                                .clickable(true)
+                                .transparency(0.7f);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Bulky")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else {
+                        LatLng c = new LatLng(45.783884, 4.872454);
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.logonobg))
+                                .position(c, f, f)
+                                .clickable(true)
+                                .transparency(0.5f);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Error")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    }
 
-            }else if (w.status.equals("active")){
-                System.out.println(w.type);
-                if (w.isSameType("plastic")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.plastic))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Plastic")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
+                } else if (w.status.equals("active")) {
+                    System.out.println(w.type);
+                    if (w.isSameType("plastic")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.plastic))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Plastic")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("glass")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.glass))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Glass")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("paper")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.paper))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Paper")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("cardboard")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.cardboard))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Cardboard")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("nonrecyclable")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.nonrecyclable))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Non recyclable")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("organic")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.organic))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Organic")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("bulky")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.bulky))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Bulky")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else {
+                        LatLng c = new LatLng(45.783884, 4.872454);
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.logonobg))
+                                .position(c, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Error")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    }
                 }
-                else if (w.isSameType("glass")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.glass))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Glass")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }
-                else if (w.isSameType("paper")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.paper))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Paper")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }
-                else if (w.isSameType("cardboard")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.cardboard))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Cardboard")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }
-                else if (w.isSameType("nonrecyclable")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.nonrecyclable))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Non recyclable")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }
-                else if (w.isSameType("organic")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.organic))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Organic")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }
-                else if (w.isSameType("bulky")){
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.bulky))
-                            .position(w.coord, 30f, 30f)
-                            .clickable(true);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Bulky")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
-                }else{
-                    LatLng c=new LatLng(45.783884, 4.872454);
-                    GroundOverlayOptions newarkMap = new GroundOverlayOptions()
-                            .image(BitmapDescriptorFactory.fromResource(R.drawable.logonobg))
-                            .position(c, 30f, 30f)
-                            .clickable(true);
-                    w.groundOverlay=map.addGroundOverlay(newarkMap);
-                    w.marker = map.addMarker(new MarkerOptions()
-                            .position(w.coord)
-                            .title("Error")
-                            .snippet(w.date.toString())
-                            .visible(false)
-                            .anchor(0.5f, 0.5f)
-                            .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
-                            .alpha(0f));
+            }
+        }else{
+            for (Waste w : allWaste) {
+                if (w.status.equals("found")) {
+                    System.out.println(w.type);
+                    if (w.isSameType("plastic")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.plastic))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Plastic")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("glass")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.glass))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Glass")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("paper")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.paper))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Paper")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("cardboard")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.cardboard))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Cardboard")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("nonrecyclable")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.nonrecyclable))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Non recyclable")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("organic")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.organic))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Organic")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else if (w.isSameType("bulky")) {
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.bulky))
+                                .position(w.coord, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Bulky")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    } else {
+                        LatLng c = new LatLng(45.783884, 4.872454);
+                        GroundOverlayOptions newarkMap = new GroundOverlayOptions()
+                                .image(BitmapDescriptorFactory.fromResource(R.drawable.logonobg))
+                                .position(c, f, f)
+                                .clickable(true);
+                        w.groundOverlay = map.addGroundOverlay(newarkMap);
+                        w.marker = map.addMarker(new MarkerOptions()
+                                .position(w.coord)
+                                .title("Error")
+                                .snippet(w.date.toString())
+                                .visible(false)
+                                .anchor(0.5f, 0.5f)
+                                .icon(BitmapDescriptorFactory.fromBitmap(bitSmallMarker))
+                                .alpha(0f));
+                    }
                 }
             }
         }

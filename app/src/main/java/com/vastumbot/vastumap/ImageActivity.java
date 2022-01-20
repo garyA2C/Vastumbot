@@ -68,6 +68,7 @@ public class ImageActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                HomeFragment.allWaste.remove(waste);
                                 statusUpdate("found");
                                 HomeFragment.initAllWaste();
                                 HomeFragment.actualiseAllWaste();
@@ -97,6 +98,7 @@ public class ImageActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                HomeFragment.allWaste.remove(waste);
                                 statusUpdate("disappeared");
                                 HomeFragment.initAllWaste();
                                 HomeFragment.actualiseAllWaste();
@@ -129,7 +131,7 @@ public class ImageActivity extends AppCompatActivity {
     }
 
     public void getImageFromServer() throws IOException {
-        String strUrl = "http://192.168.137.1:8008/"+waste.id+"/image.png";
+        String strUrl = "http://192.168.137.1:8008/"+waste.id+"/image.jpg";
         URL url = new URL(strUrl);
         HttpURLConnection connection  = (HttpURLConnection) url.openConnection();
 
