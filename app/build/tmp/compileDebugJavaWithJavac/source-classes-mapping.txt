@@ -7,8 +7,10 @@ com/vastumbot/vastumap/ui/Waste.java
  com.vastumbot.vastumap.ui.Waste
 com/vastumbot/vastumap/databinding/FragmentHomeBinding.java
  com.vastumbot.vastumap.databinding.FragmentHomeBinding
-com/vastumbot/vastumap/ui/home/HomeViewModel.java
- com.vastumbot.vastumap.ui.home.HomeViewModel
+com/vastumbot/vastumap/MainActivity.java
+ com.vastumbot.vastumap.MainActivity
+ com.vastumbot.vastumap.MainActivity$1
+ com.vastumbot.vastumap.MainActivity$2
 com/vastumbot/vastumap/databinding/AppBarMainBinding.java
  com.vastumbot.vastumap.databinding.AppBarMainBinding
 com/vastumbot/vastumap/databinding/ActivityMainBinding.java
@@ -43,6 +45,8 @@ com/vastumbot/vastumap/ImageActivity.java
  com.vastumbot.vastumap.ImageActivity$3
  com.vastumbot.vastumap.ImageActivity$4
  com.vastumbot.vastumap.ImageActivity$5
+com/vastumbot/vastumap/ui/home/HomeViewModel.java
+ com.vastumbot.vastumap.ui.home.HomeViewModel
 com/vastumbot/vastumap/ui/home/HomeFragment.java
  com.vastumbot.vastumap.ui.home.HomeFragment
  com.vastumbot.vastumap.ui.home.HomeFragment$1
@@ -53,7 +57,3 @@ com/vastumbot/vastumap/ui/home/HomeFragment.java
  com.vastumbot.vastumap.ui.home.HomeFragment$6
  com.vastumbot.vastumap.ui.home.HomeFragment$7
  com.vastumbot.vastumap.ui.home.HomeFragment$8
-com/vastumbot/vastumap/MainActivity.java
- com.vastumbot.vastumap.MainActivity
- com.vastumbot.vastumap.MainActivity$1
- com.vastumbot.vastumap.MainActivity$2
