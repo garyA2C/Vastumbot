@@ -1,20 +1,20 @@
 com/vastumbot/vastumap/MySingleton.java
  com.vastumbot.vastumap.MySingleton
  com.vastumbot.vastumap.MySingleton$1
-com/vastumbot/vastumap/databinding/FragmentGalleryBinding.java
- com.vastumbot.vastumap.databinding.FragmentGalleryBinding
-com/vastumbot/vastumap/ui/Waste.java
- com.vastumbot.vastumap.ui.Waste
-com/vastumbot/vastumap/databinding/AppBarMainBinding.java
- com.vastumbot.vastumap.databinding.AppBarMainBinding
-com/vastumbot/vastumap/ui/home/HomeViewModel.java
- com.vastumbot.vastumap.ui.home.HomeViewModel
 com/vastumbot/vastumap/BuildConfig.java
  com.vastumbot.vastumap.BuildConfig
-com/vastumbot/vastumap/databinding/ActivityMainBinding.java
- com.vastumbot.vastumap.databinding.ActivityMainBinding
+com/vastumbot/vastumap/ui/Waste.java
+ com.vastumbot.vastumap.ui.Waste
 com/vastumbot/vastumap/databinding/FragmentHomeBinding.java
  com.vastumbot.vastumap.databinding.FragmentHomeBinding
+com/vastumbot/vastumap/ui/home/HomeViewModel.java
+ com.vastumbot.vastumap.ui.home.HomeViewModel
+com/vastumbot/vastumap/databinding/AppBarMainBinding.java
+ com.vastumbot.vastumap.databinding.AppBarMainBinding
+com/vastumbot/vastumap/databinding/ActivityMainBinding.java
+ com.vastumbot.vastumap.databinding.ActivityMainBinding
+com/vastumbot/vastumap/databinding/FragmentGalleryBinding.java
+ com.vastumbot.vastumap.databinding.FragmentGalleryBinding
 com/vastumbot/vastumap/databinding/ActivityImageBinding.java
  com.vastumbot.vastumap.databinding.ActivityImageBinding
 com/vastumbot/vastumap/databinding/ContentMainBinding.java

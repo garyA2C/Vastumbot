@@ -68,13 +68,13 @@ public class ImageActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                HomeFragment.allWaste.remove(waste);
                                 statusUpdate("found");
-                                HomeFragment.initAllWaste();
-                                HomeFragment.actualiseAllWaste();
-                                HomeFragment.drawOnMap();
                                 waste.status="found";
-                                textStatus.setText("Status : "+waste.status);
+                                textStatus.setText("Status : found");
+
+                                HomeFragment.allWaste.get(waste.id).status="found";
+                                HomeFragment.drawOnMap();
+
                             }
                         });
                 builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -91,6 +91,12 @@ public class ImageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                AlertDialog.Builder okbuilder = new AlertDialog.Builder(v.getContext());
+                okbuilder.setCancelable(true);
+                okbuilder.setTitle("Confirmation");
+                okbuilder.setMessage("Changement effectué sur le serveur");
+
+
                 builder.setCancelable(true);
                 builder.setTitle("Confirmer que le déchet est manquant ? ");
                 builder.setMessage("Nous marquerons sur nos serveurs le déchet comme introuvable");
@@ -98,13 +104,13 @@ public class ImageActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                HomeFragment.allWaste.remove(waste);
                                 statusUpdate("disappeared");
-                                HomeFragment.initAllWaste();
-                                HomeFragment.actualiseAllWaste();
-                                HomeFragment.drawOnMap();
                                 waste.status="disappeared";
-                                textStatus.setText("Status : "+waste.status);
+                                textStatus.setText("Status : disappeared");
+
+                                HomeFragment.allWaste.set(waste.id,waste);
+                                HomeFragment.drawOnMap();
+
                             }
                         });
                 builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {

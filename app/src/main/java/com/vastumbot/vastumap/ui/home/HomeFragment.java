@@ -228,9 +228,6 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
 
-        initAllWaste();
-        actualiseAllWaste();
-
         map.setMinZoomPreference(16);
         map.setMaxZoomPreference(20);
         map.getUiSettings().setRotateGesturesEnabled(false);
@@ -269,10 +266,19 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onInfoWindowClick(@NonNull Marker marker) {
                 for (Waste w : allWaste){
-                    if (!w.status.equals("found")){
-                        if (w.marker.equals(marker)){
-                            waste=w;
-                            switchActivities();
+                    if (actif){
+                        if ((w.status.equals("disappeared")) || (w.status.equals("active"))) {
+                            if (w.marker.equals(marker)){
+                                waste=w;
+                                switchActivities();
+                            }
+                        }
+                    }else{
+                        if (w.status.equals("found")){
+                            if (w.marker.equals(marker)){
+                                waste=w;
+                                switchActivities();
+                            }
                         }
                     }
                 }
@@ -289,14 +295,38 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 CameraUpdate cu = CameraUpdateFactory.newCameraPosition(cameraPosition);
                 map.animateCamera(cu);
                 for (Waste w : allWaste){
-                    if (groundOverlay.equals(w.groundOverlay)){
-                        System.out.println(groundOverlay.getPosition());
-                        w.marker.setVisible(true);
-                        w.marker.setInfoWindowAnchor(0.5f, 0.3f);
-                        w.marker.showInfoWindow();
+                    if (actif){
+                        System.out.println(w.status);
+                        if ((w.status.equals("disappeared")) || (w.status.equals("active"))) {
+                            if (groundOverlay.equals(w.groundOverlay)){
+                                System.out.println("reached");
+
+                                System.out.println(groundOverlay.getPosition());
+                                w.marker.setVisible(true);
+                                w.marker.setInfoWindowAnchor(0.5f, 0.3f);
+                                w.marker.showInfoWindow();
+
+                            }else {
+                                w.marker.setVisible(false);
+                                System.out.println("erased");
+
+                            }
+                        }else{
+                            System.out.println("nani?");
+
+                        }
                     }else{
-                        if (!w.status.equals("found")){
-                            w.marker.setVisible(false);
+                        System.out.println("non active");
+                        if (w.status.equals("found")){
+                            if (groundOverlay.equals(w.groundOverlay)){
+                                System.out.println(groundOverlay.getPosition());
+                                w.marker.setVisible(true);
+                                w.marker.setInfoWindowAnchor(0.5f, 0.3f);
+                                w.marker.showInfoWindow();
+
+                            }else{
+                                w.marker.setVisible(false);
+                            }
                         }
                     }
                 }
@@ -312,12 +342,22 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 }
 
                 for (Waste w : allWaste) {
-                    if (!(w.status.equals("found"))){
-                        w.marker.setVisible(false);
+                    if (actif){
+                        if ((w.status.equals("disappeared")) || (w.status.equals("active"))) {
+                            w.marker.setVisible(false);
+                        }
+                    }else{
+                        if (w.status.equals("found")){
+                            w.marker.setVisible(false);
+                        }
                     }
                 }
             }
         });
+
+        initAllWaste();
+        actualiseAllWaste();
+        drawOnMap();
     }
     // [END maps_current_place_on_map_ready]
 
@@ -445,9 +485,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         System.out.println("\n \n\nyooooo\n\n\n");
         if (actif){
             for (Waste w : allWaste) {
-                if (w.status.equals("found")) {
-
-                } else if (w.status.equals("disappeared")) {
+                if (w.status.equals("disappeared")) {
                     System.out.println(w.type);
                     if (w.isSameType("plastic")) {
                         GroundOverlayOptions newarkMap = new GroundOverlayOptions()
